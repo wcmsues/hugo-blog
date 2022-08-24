@@ -1,6 +1,6 @@
 ---
 title: "基于Hugo+Github搭建个人博客"
-date: 2022-08-12T13:45:43+08:00
+date: 2022-08-11T13:45:43+08:00
 draft: false
 description: "基于Hugo+Github搭建个人博客"
 tags: ["Hugo","Github Pages","Github","博客"]
@@ -159,7 +159,9 @@ toc:
 我的第一篇文章
 ```
 
-两行`---`里的属性是`front matter`，用来设置当前文章的属性配置，如上是我经常使用的配置。
+两行 `---` 里的属性是 `front matter`，用来设置当前文章的属性配置，如上是我经常使用的配置。
+
+平时写博客，把写好的markdown文档放到这个 `content/posts` 目录就可以了，记得在开头加上 `front matter`
 
 ## 六、启动Hugo服务
 
@@ -290,28 +292,12 @@ Hi wcmsues! You've successfully authenticated, but GitHub does not provide shell
 
 ### 3 部署到Github Pages
 
-第一次发布，执行下方脚本
+执行下方脚本
 
 ```sh
-# 生成静态文件
-hugo --theme=LoveIt --baseUrl="https://wcmsues.github.io"
-# 进入生成的文件夹
-cd public
+# 确保脚本抛出遇到的错误
+set -e
 
-# 基本操作
-git init
-git add .
-git commit -m 'firstcommit'
-
-#只在第一次部署时运行
-git remote add origin git@github.com:wcmsues/wcmsues.github.io.git
-# 发布只在第一次部署时带-u
-git push -u origin master
-```
-
-从第二次发布开始，执行下方脚本即可
-
-```sh
 # 生成静态文件
 hugo --theme=LoveIt --baseUrl="https://wcmsues.github.io"
 # 进入生成的文件夹
@@ -323,10 +309,17 @@ git add -A
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io
-git push git@github.com:wcmsues/hugo-blog.git master
+git push git@github.com:wcmsues/wcmsues.github.io.git master
 ```
-
-
 
 ## 九、美化配置
 
+可以参考
+- [Lovelt主题](https://hugoloveit.com/zh-cn/)
+- [Lewis的Hugo-Lovelt主题美化](https://lewky.cn/categories/hugo%E7%B3%BB%E5%88%97/)
+
+---
+
+最终我的基于Hugo+Github搭建的个人博客：[Milo's Blog](https://wcmsues.github.io/)
+
+慢慢美化配置好之后，就不用动了，我平时也就写写md文件，放到 `content/posts` 目录，开头加上 `front matter`，然后用脚本上传即可。
