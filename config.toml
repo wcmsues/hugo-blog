@@ -52,7 +52,7 @@ hasCJKLanguage = true
     pre = ""
     post = ""
     name = "前端开发"
-    url = "https://miloreact.github.io/"
+    url = "https://wcmsues.github.io/vuepress-frontend/"
     title = ""
   [[menu.main]]
     weight = 5
